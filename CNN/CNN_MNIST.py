@@ -16,10 +16,10 @@ img_transforms = transforms.Compose(
      transforms.Normalize([0.5], [0.5])])
 # MNIST Dataset
 train_dataset = dsets.MNIST(
-    root='./data/', train=True, transform=img_transforms, download=True)
+    root='../data/', train=True, transform=img_transforms, download=True)
 
 test_dataset = dsets.MNIST(
-    root='./data/', train=False, transform=img_transforms)
+    root='../data/', train=False, transform=img_transforms)
 
 # Data Loader (Input Pipeline)
 train_loader = DataLoader(

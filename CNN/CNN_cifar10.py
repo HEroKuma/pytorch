@@ -20,10 +20,10 @@ test_transform = transforms.Compose([
 ])
 
 train_dataset = dsets.CIFAR10(
-    root='./data', train=True, transform=train_transform, download=True)
+    root='../data', train=True, transform=train_transform, download=True)
 
 test_dataset = dsets.CIFAR10(
-    root='./data', train=False, transform=test_transform)
+    root='../data', train=False, transform=test_transform)
 
 # Data Loader (Input Pipeline)
 train_loader = DataLoader(dataset=train_dataset, batch_size=128, shuffle=True)
