@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa7331a-897d-41c5-8579-6719daaec472" name="Default" comment="add RNN_MNIST&#10;fix path error in CNN*">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/rnn.pth" />
+    <list default="true" id="8fa7331a-897d-41c5-8579-6719daaec472" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -282,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512760264336</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add RNN_MNIST&#10;fix path error in CNN*">
+      <created>1512760386446</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1512760386446</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
