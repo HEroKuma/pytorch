@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa7331a-897d-41c5-8579-6719daaec472" name="Default" comment="add RNN_MNIST">
+    <list default="true" id="8fa7331a-897d-41c5-8579-6719daaec472" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/N-gram.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/LSTM.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/data.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/seq_lstm.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,17 +22,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RNN_MNIST.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RNN_MNIST.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNN/RNN_MNIST.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="544">
+              <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
                 <element signature="e#635#1263#0" expanded="false" />
                 <element signature="e#1500#3483#0" expanded="false" />
                 <element signature="e#1656#2490#0" expanded="false" />
                 <element signature="e#2749#3346#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RNN/data.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="143" column="13" lean-forward="false" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LSTM.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RNN/LSTM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="N-gram.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/N-gram.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1428">
+              <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seq_lstm.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RNN/seq_lstm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51">
+              <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,6 +132,10 @@
         <option value="$PROJECT_DIR$/CNN/CNN_cifar10.py" />
         <option value="$PROJECT_DIR$/CNN/CNN_MNIST.py" />
         <option value="$PROJECT_DIR$/RNN/RNN_MNIST.py" />
+        <option value="$PROJECT_DIR$/RNN/data.csv" />
+        <option value="$PROJECT_DIR$/RNN/LSTM.py" />
+        <option value="$PROJECT_DIR$/RNN/seq_lstm.py" />
+        <option value="$PROJECT_DIR$/N-gram.py" />
       </list>
     </option>
   </component>
@@ -94,8 +146,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="937" />
-    <option name="y" value="25" />
+    <option name="x" value="-4" />
+    <option name="y" value="18" />
     <option name="width" value="956" />
     <option name="height" value="1031" />
   </component>
@@ -153,7 +205,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.RNN_MNIST">
+  <component name="RunManager" selected="Python.N-gram">
     <configuration name="CNN_MNIST (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -172,36 +224,36 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="CNN_cifar10 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="LSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RNN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/CNN_cifar10.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/LSTM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="CNN_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="N-gram" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/CNN_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/N-gram.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,37 +276,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="seq_lstm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RNN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/seq_lstm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.test" />
-      <item index="1" class="java.lang.String" itemvalue="Python.CNN_cifar10 (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Python.CNN_model" />
-      <item index="3" class="java.lang.String" itemvalue="Python.CNN_MNIST (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.RNN_MNIST" />
+      <item index="0" class="java.lang.String" itemvalue="Python.CNN_MNIST (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.RNN_MNIST" />
+      <item index="2" class="java.lang.String" itemvalue="Python.LSTM" />
+      <item index="3" class="java.lang.String" itemvalue="Python.seq_lstm" />
+      <item index="4" class="java.lang.String" itemvalue="Python.N-gram" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.RNN_MNIST" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CNN_MNIST (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.CNN_cifar10 (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.CNN_model" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.N-gram" />
+        <item index="1" class="java.lang.String" itemvalue="Python.seq_lstm" />
+        <item index="2" class="java.lang.String" itemvalue="Python.LSTM" />
+        <item index="3" class="java.lang.String" itemvalue="Python.RNN_MNIST" />
+        <item index="4" class="java.lang.String" itemvalue="Python.CNN_MNIST (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -297,19 +349,25 @@
       <option name="project" value="LOCAL" />
       <updated>1512760409963</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add RNN_MNIST">
+      <created>1512760578072</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1512760578072</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="18" width="1928" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111821085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.5021299" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.5042598" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.7907348" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -369,38 +427,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CNN/CNN_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#12#0" expanded="false" />
-            <element signature="e#119#869#0" expanded="false" />
-            <element signature="e#899#1473#0" expanded="false" />
-            <element signature="e#1505#2838#0" expanded="false" />
-            <element signature="e#2868#5282#0" expanded="false" />
-            <element signature="e#5318#5668#0" expanded="false" />
-            <element signature="e#5702#6867#0" expanded="false" />
-            <element signature="e#6919#7011#0" expanded="false" />
-            <element signature="e#7044#7754#0" expanded="false" />
-            <element signature="e#7785#9143#0" expanded="false" />
-            <element signature="e#9177#9726#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/CNN_MNIST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#12#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic_simple.py" />
-    <entry file="file://$PROJECT_DIR$/pol_regression.py" />
     <entry file="file://$PROJECT_DIR$/DNN_MNIST.py" />
     <entry file="file://$PROJECT_DIR$/logistic_MNIST.py" />
     <entry file="file://$PROJECT_DIR$/data_util.py" />
@@ -511,14 +537,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNN/RNN_MNIST.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="544">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
             <element signature="e#635#1263#0" expanded="false" />
             <element signature="e#1500#3483#0" expanded="false" />
             <element signature="e#1656#2490#0" expanded="false" />
             <element signature="e#2749#3346#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="143" column="13" lean-forward="false" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/seq_lstm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/N-gram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
