@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fa7331a-897d-41c5-8579-6719daaec472" name="Default" comment="add RNN_MNIST">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/LSTM.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/N-gram.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/data.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNN/seq_lstm.py" />
+    <list default="true" id="8fa7331a-897d-41c5-8579-6719daaec472" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GAN/CNN_auto_encoder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GAN/VAE.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GAN/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GAN/auto_encoder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GAN/gan.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple/DNN_MNIST.py" afterPath="$PROJECT_DIR$/simple/DNN_MNIST.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,12 +40,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RNN/data.csv">
+      <file leaf-file-name="auto_encoder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GAN/auto_encoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="143" column="13" lean-forward="false" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="612">
+              <caret line="70" column="25" lean-forward="false" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#368#453#0" expanded="false" />
+                <element signature="e#546#635#0" expanded="false" />
+                <element signature="e#795#1494#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CNN_auto_encoder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GAN/CNN_auto_encoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="38" />
+              <folding>
+                <element signature="e#368#453#0" expanded="false" />
+                <element signature="e#546#635#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VAE.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GAN/VAE.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#605#695#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gan.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GAN/gan.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="95" column="30" lean-forward="true" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#1098#1475#0" expanded="false" />
+                <element signature="e#1509#1870#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="N-gram.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="N-gram.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNN/N-gram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+            <state relative-caret-position="527">
+              <caret line="76" column="59" lean-forward="false" selection-start-line="76" selection-start-column="59" selection-end-line="76" selection-end-column="59" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -75,18 +122,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-51">
               <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RNN.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RNN/RNN.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -136,6 +171,12 @@
         <option value="$PROJECT_DIR$/RNN/LSTM.py" />
         <option value="$PROJECT_DIR$/RNN/seq_lstm.py" />
         <option value="$PROJECT_DIR$/N-gram.py" />
+        <option value="$PROJECT_DIR$/simple/DNN_MNIST.py" />
+        <option value="$PROJECT_DIR$/GAN/mlp_img/__init__.py" />
+        <option value="$PROJECT_DIR$/GAN/auto_encoder.py" />
+        <option value="$PROJECT_DIR$/GAN/CNN_auto_encoder.py" />
+        <option value="$PROJECT_DIR$/GAN/VAE.py" />
+        <option value="$PROJECT_DIR$/GAN/gan.py" />
       </list>
     </option>
   </component>
@@ -146,7 +187,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="915" />
+    <option name="x" value="960" />
     <option name="y" value="25" />
     <option name="width" value="956" />
     <option name="height" value="1031" />
@@ -178,7 +219,7 @@
             <path>
               <item name="pytorch" type="b2602c69:ProjectViewProjectNode" />
               <item name="pytorch" type="462c0819:PsiDirectoryNode" />
-              <item name="RNN" type="462c0819:PsiDirectoryNode" />
+              <item name="GAN" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -195,6 +236,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GAN" />
       <recent name="$PROJECT_DIR$/RNN" />
     </key>
   </component>
@@ -210,108 +252,106 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.N-gram">
-    <configuration name="CNN_MNIST (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.gan">
+    <configuration name="CNN_auto_encoder" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="CUDA_VISIBLE_DEVICES" value="1" />
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/CNN_MNIST.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAN/CNN_auto_encoder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="LSTM" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="DNN_MNIST" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/simple" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/LSTM.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/simple/DNN_MNIST.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="N-gram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="VAE" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/N-gram.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAN/VAE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="RNN_MNIST" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="auto_encoder" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="CUDA_VISIBLE_DEVICES" value="1" />
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/RNN_MNIST.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAN/auto_encoder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="seq_lstm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="gan" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pytorch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RNN/seq_lstm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAN/gan.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.CNN_MNIST (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.RNN_MNIST" />
-      <item index="2" class="java.lang.String" itemvalue="Python.LSTM" />
-      <item index="3" class="java.lang.String" itemvalue="Python.seq_lstm" />
-      <item index="4" class="java.lang.String" itemvalue="Python.N-gram" />
+      <item index="0" class="java.lang.String" itemvalue="Python.auto_encoder" />
+      <item index="1" class="java.lang.String" itemvalue="Python.DNN_MNIST" />
+      <item index="2" class="java.lang.String" itemvalue="Python.CNN_auto_encoder" />
+      <item index="3" class="java.lang.String" itemvalue="Python.VAE" />
+      <item index="4" class="java.lang.String" itemvalue="Python.gan" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.N-gram" />
-        <item index="1" class="java.lang.String" itemvalue="Python.seq_lstm" />
-        <item index="2" class="java.lang.String" itemvalue="Python.LSTM" />
-        <item index="3" class="java.lang.String" itemvalue="Python.RNN_MNIST" />
-        <item index="4" class="java.lang.String" itemvalue="Python.CNN_MNIST (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.gan" />
+        <item index="1" class="java.lang.String" itemvalue="Python.VAE" />
+        <item index="2" class="java.lang.String" itemvalue="Python.CNN_auto_encoder" />
+        <item index="3" class="java.lang.String" itemvalue="Python.auto_encoder" />
+        <item index="4" class="java.lang.String" itemvalue="Python.DNN_MNIST" />
       </list>
     </recent_temporary>
   </component>
@@ -368,23 +408,30 @@
       <option name="project" value="LOCAL" />
       <updated>1512766514899</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="RNN on word emb">
+      <created>1512766652171</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1512766652171</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="18" width="1928" height="1042" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111821085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11128861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.5042598" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.7907348" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.21246007" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932165" sideWeight="0.49574015" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056892" sideWeight="0.78753996" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3249453" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -430,21 +477,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add RNN_MNIST&#10;fix path error in CNN*" />
     <MESSAGE value="add RNN_MNIST" />
-    <option name="LAST_COMMIT_MESSAGE" value="add RNN_MNIST" />
+    <MESSAGE value="RNN on word emb" />
+    <option name="LAST_COMMIT_MESSAGE" value="RNN on word emb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DNN_MNIST.py" />
-    <entry file="file://$PROJECT_DIR$/logistic_MNIST.py" />
-    <entry file="file://$PROJECT_DIR$/data_util.py" />
-    <entry file="file://$PROJECT_DIR$/pol_regression.py" />
-    <entry file="file://$PROJECT_DIR$/DNN_MNIST.py" />
-    <entry file="file://$PROJECT_DIR$/logistic_simple.py" />
     <entry file="file://$PROJECT_DIR$/CNN_cifar10.py" />
     <entry file="file://$PROJECT_DIR$/CNN_MNIST.py" />
     <entry file="file://$PROJECT_DIR$/logistic_MNIST.py" />
@@ -463,7 +505,6 @@
     <entry file="file://$PROJECT_DIR$/DNN_MNIST.py" />
     <entry file="file://$PROJECT_DIR$/linear_regression.py" />
     <entry file="file://$PROJECT_DIR$/linear_regression.py" />
-    <entry file="file://$USER_HOME$/miniconda3/lib/python3.6/site-packages/torch/nn/modules/module.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -510,39 +551,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/CNN_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding>
-            <element signature="e#119#869#0" expanded="false" />
-            <element signature="e#899#1473#0" expanded="false" />
-            <element signature="e#1505#2838#0" expanded="false" />
-            <element signature="e#2868#5282#0" expanded="false" />
-            <element signature="e#5318#5668#0" expanded="false" />
-            <element signature="e#5702#6867#0" expanded="false" />
-            <element signature="e#6919#7011#0" expanded="false" />
-            <element signature="e#7044#7754#0" expanded="false" />
-            <element signature="e#7785#9143#0" expanded="false" />
-            <element signature="e#9177#9726#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/CNN_MNIST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RNN/RNN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -561,22 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RNN/data.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="143" column="13" lean-forward="false" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RNN/LSTM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RNN/seq_lstm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
@@ -589,10 +587,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNN/N-gram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+        <state relative-caret-position="527">
+          <caret line="76" column="59" lean-forward="false" selection-start-line="76" selection-start-column="59" selection-end-line="76" selection-end-column="59" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/CNN_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding>
+            <element signature="e#119#869#0" expanded="false" />
+            <element signature="e#899#1473#0" expanded="false" />
+            <element signature="e#1505#2838#0" expanded="false" />
+            <element signature="e#5318#5668#0" expanded="false" />
+            <element signature="e#5702#6867#0" expanded="false" />
+            <element signature="e#6919#7011#0" expanded="false" />
+            <element signature="e#7044#7754#0" expanded="false" />
+            <element signature="e#7785#9143#0" expanded="false" />
+            <element signature="e#9177#9726#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/miniconda3/lib/python3.6/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1443">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/LSTM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/CNN_MNIST.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#868#2166#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple/DNN_MNIST.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNN/data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="143" column="13" lean-forward="false" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GAN/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GAN/CNN_auto_encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <element signature="e#368#453#0" expanded="false" />
+            <element signature="e#546#635#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GAN/auto_encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="70" column="25" lean-forward="false" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#368#453#0" expanded="false" />
+            <element signature="e#546#635#0" expanded="false" />
+            <element signature="e#795#1494#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GAN/VAE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#605#695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GAN/gan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="95" column="30" lean-forward="true" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#1098#1475#0" expanded="false" />
+            <element signature="e#1509#1870#0" expanded="false" />
           </folding>
         </state>
       </provider>
