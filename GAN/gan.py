@@ -1,3 +1,4 @@
+import argparse
 import torch
 from torch import nn
 from torch import optim
@@ -8,7 +9,18 @@ from torchvision import transforms
 from torchvision.utils import save_image
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
+parser = argparse.ArgumentParser()
+parser.add_argument('--epochs', type=int, default=100, help='epoch number')
+parser.add_argument('--batch_size', type=str, default=128, help='batch size')
+parser.add_argument('--lr1', type=float, default=0.003, help='learning rate')
+parser.add_argument('--lr2', type=float, default=0.003, help='learning rate')
+parser.add_argument('--dataset_path', type=str, default='./data', help='training dataset path')
+parser.add_argument('--gpu_num', type=str, default='1', help='gpu devices number')
+parser.add_argument('--cpu_num', type=int, default=8, help='cpu workers number')
+opt = parser.parse_args()
+print(opt)
+
+os.environ["CUDA_VISIBLE_DEVICES"]=opt.gpu_num
 
 if not os.path.exists('./gan_img'):
     os.mkdir('./gan_img')
@@ -20,8 +32,8 @@ def to_img(x):
     return out
 
 
-batch_size = 128
-num_epoch = 100
+batch_size = opt.batch_size
+num_epoch = opt.epochs
 z_dimension = 100
 
 img_transform = transforms.Compose([
@@ -36,7 +48,8 @@ mnist = datasets.MNIST(root='../data/',
 # Data loader
 dataloader = torch.utils.data.DataLoader(dataset=mnist,
                                          batch_size=batch_size,
-                                         shuffle=True)
+                                         shuffle=True,
+                                         num_workers=4)
 class discrimintor(nn.Module):
     def __init__(self):
         super(discrimintor, self).__init__()
@@ -73,8 +86,8 @@ if torch.cuda.is_available():
 G = G.cuda()
 
 criterion = nn.BCELoss()
-d_optimizer = torch.optim.Adam(D.parameters(), lr=0.0003)
-g_optimizer = torch.optim.Adam(G.parameters(), lr=0.0003)
+d_optimizer = torch.optim.Adam(D.parameters(), lr=opt.lr1)
+g_optimizer = torch.optim.Adam(G.parameters(), lr=opt.lr2)
 
 for epoch in range(num_epoch):
     for i, (img, _) in enumerate(dataloader):
