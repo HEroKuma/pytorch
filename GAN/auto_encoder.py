@@ -1,4 +1,5 @@
 import os
+import argparse
 import torch
 from torch import nn
 from torch.autograd import Variable
@@ -7,8 +8,16 @@ from torchvision import transforms
 from torchvision.datasets import MNIST
 from torchvision.utils import save_image
 
-import os
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
+parser = argparse.ArgumentParser()
+parser.add_argument('--epochs', type=int, default=100, help='epoch number')
+parser.add_argument('--batch_size', type=str, default=128, help='batch size')
+parser.add_argument('--lr', type=float, default=1e-3, help='learning rate')
+parser.add_argument('--dataset_path', type=str, default='./data', help='training dataset path')
+parser.add_argument('--gpu_num', type=str, default='0', help='gpu devices number')
+opt = parser.parse_args()
+print(opt)
+
+os.environ["CUDA_VISIBLE_DEVICES"]=opt.gpu_num
 
 if not os.path.exists('./mlp_img'):
     os.mkdir('./mlp_img')
@@ -19,9 +28,9 @@ def to_img(x):
     x = x.view(x.size(0), 1, 28, 28)
     return x
 
-num_epochs = 100
-batch_size = 128
-learning_rete = 1e-3
+num_epochs = opt.epochs
+batch_size = opt.batch_size
+learning_rete = opt.lr
 
 img_transform = transforms.Compose([
     transforms.ToTensor(),
