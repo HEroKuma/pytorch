@@ -61,7 +61,7 @@ net = Net()
 
 # 3. Define a Loss function and optimizer
 criterion = nn.CrossEntropyLoss()
-optimzer = optim.SGD(net.parameters(), lr = 0.001, momentum = 0.9) # SGD(传入参数，定义lr,动量）
+optimzer = optim.SGD(net.parameters(), lr = 0.001, momentum = 0.9)
 
 # 4. Train the network
 for epoch in range(1):
