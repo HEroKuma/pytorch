@@ -1,96 +1,119 @@
-from CNN_model import ResBlock,ResNet
+import os
+
 import torch
-import torchvision.datasets as dsets
-import torchvision.transforms as transforms
-from torch import nn, optim
-from torch.autograd import Variable
-from torch.utils.data import DataLoader
+import torch.nn as nn
+import torch.utils.data as Data
+import torchvision
+import matplotlib.pyplot as plt
 
-train_transform = transforms.Compose([
-    transforms.Scale(40),
-    transforms.RandomHorizontalFlip(),
-    transforms.RandomCrop(32),
-    transforms.ToTensor(),
-    transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
-])
+# Hyper Parameters
+EPOCH = 1               # train the training data n times, to save time, we just train 1 epoch
+BATCH_SIZE = 50
+LR = 0.001              # learning rate
+DOWNLOAD_MNIST = False
 
-test_transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
-])
 
-train_dataset = dsets.CIFAR10(
-    root='../data', train=True, transform=train_transform, download=True)
+# Mnist digits dataset
+if not(os.path.exists('./mnist/')) or not os.listdir('./mnist/'):
+    # not mnist dir or mnist is empyt dir
+    DOWNLOAD_MNIST = True
 
-test_dataset = dsets.CIFAR10(
-    root='../data', train=False, transform=test_transform)
+train_data = torchvision.datasets.MNIST(
+    root='./mnist/',
+    train=True,                                     # this is training data
+    transform=torchvision.transforms.ToTensor(),    # Converts a PIL.Image or numpy.ndarray to
+                                                    # torch.FloatTensor of shape (C x H x W) and normalize in the range [0.0, 1.0]
+    download=DOWNLOAD_MNIST,
+)
 
-# Data Loader (Input Pipeline)
-train_loader = DataLoader(dataset=train_dataset, batch_size=128, shuffle=True)
+# plot one example
+print(train_data.train_data.size())                 # (60000, 28, 28)
+print(train_data.train_labels.size())               # (60000)
+plt.imshow(train_data.train_data[0].numpy(), cmap='gray')
+plt.title('%i' % train_data.train_labels[0])
+plt.show()
 
-test_loader = DataLoader(dataset=test_dataset, batch_size=128, shuffle=False)
+# Data Loader for easy mini-batch return in training, the image batch shape will be (50, 1, 28, 28)
+train_loader = Data.DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=True)
 
-resnet = ResNet(ResBlock, [3, 3, 3])
-resnet.cuda()
+# pick 2000 samples to speed up testing
+test_data = torchvision.datasets.MNIST(root='./mnist/', train=False)
+test_x = torch.unsqueeze(test_data.test_data, dim=1).type(torch.FloatTensor)[:2000]/255.   # shape from (2000, 28, 28) to (2000, 1, 28, 28), value in range(0,1)
+test_y = test_data.test_labels[:2000]
 
-# Loss and Optimizer
-criterion = nn.CrossEntropyLoss()
-lr = 0.001
-optimizer = torch.optim.Adam(resnet.parameters(), lr=lr)
 
-# Training
-total_epoch = 50
-for epoch in range(total_epoch):
-    running_loss = 0
-    running_acc = 0
-    running_num = 0
-    for i, (images, labels) in enumerate(train_loader):
-        if torch.cuda.is_available():
-            images = Variable(images.cuda())
-            labels = Variable(labels.cuda())
-        else:
-            images = Variable(images)
-            labels = Variable(labels)
-        # Forward + Backward + Optimize
-        optimizer.zero_grad()
-        outputs = resnet(images)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
+class CNN(nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        self.conv1 = nn.Sequential(         # input shape (1, 28, 28)
+            nn.Conv2d(
+                in_channels=1,              # input height
+                out_channels=16,            # n_filters
+                kernel_size=5,              # filter size
+                stride=1,                   # filter movement/step
+                padding=2,                  # if want same width and length of this image after con2d, padding=(kernel_size-1)/2 if stride=1
+            ),                              # output shape (16, 28, 28)
+            nn.ReLU(),                      # activation
+            nn.MaxPool2d(kernel_size=2),    # choose max value in 2x2 area, output shape (16, 14, 14)
+        )
+        self.conv2 = nn.Sequential(         # input shape (16, 14, 14)
+            nn.Conv2d(16, 32, 5, 1, 2),     # output shape (32, 14, 14)
+            nn.ReLU(),                      # activation
+            nn.MaxPool2d(2),                # output shape (32, 7, 7)
+        )
+        self.out = nn.Linear(32 * 7 * 7, 10)   # fully connected layer, output 10 classes
 
-        # =====================log=====================
-        running_num += labels.size(0)
-        running_loss += loss.data[0] * labels.size(0)
-        _, correct_label = torch.max(outputs, 1)
-        correct_num = (correct_label == labels).sum()
-        running_acc += correct_num.data[0]
-        if (i + 1) % 100 == 0:
-            print_loss = running_loss / running_num
-            print_acc = running_acc / running_num
-            print("Epoch [{}/{}], Iter [{}/{}] Loss: {:.6f} Acc: {:.6f}".
-                  format(epoch + 1, total_epoch, i + 1,
-                         len(train_loader), print_loss, print_acc))
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.conv2(x)
+        x = x.view(x.size(0), -1)           # flatten the output of conv2 to (batch_size, 32 * 7 * 7)
+        output = self.out(x)
+        return output, x    # return x for visualization
 
-    # Decaying Learning Rate
-    if (epoch + 1) % 20 == 0:
-        lr /= 3
-        optimizer = torch.optim.Adam(resnet.parameters(), lr=lr)
 
-# Test
-correct = 0
-total = 0
-for images, labels in test_loader:
-    if torch.cuda.is_available:
-        images = Variable(images.cuda())
-    else:
-        images = Variable(images)
-    outputs = resnet(images)
-    _, predicted = torch.max(outputs.data, 1)
-    total += labels.size(0)
-    correct += (predicted.cpu() == labels).sum()
+cnn = CNN()
+print(cnn)  # net architecture
 
-print('Accuracy of the model on the test images: {:.2f} %%'.format(
-    100 * correct / total))
+optimizer = torch.optim.Adam(cnn.parameters(), lr=LR)   # optimize all cnn parameters
+loss_func = nn.CrossEntropyLoss()                       # the target label is not one-hotted
 
-# Save the Model
-torch.save(resnet.state_dict(), 'resnet.pth')
+# following function (plot_with_labels) is for visualization, can be ignored if not interested
+from matplotlib import cm
+try: from sklearn.manifold import TSNE; HAS_SK = True
+except: HAS_SK = False; print('Please install sklearn for layer visualization')
+def plot_save(lowDWeights, labels, epoch, step):
+    plt.cla()
+    X, Y = lowDWeights[:, 0], lowDWeights[:, 1]
+    for x, y, s in zip(X, Y, labels):
+        c = cm.rainbow(int(255 * s / 9)); plt.text(x, y, s, backgroundcolor=c, fontsize=9)
+    plt.xlim(X.min(), X.max()); plt.ylim(Y.min(), Y.max()); plt.title('Visualize last layer'); plt.savefig('{}-{}.png'.format(epoch, step))
+
+
+# training and testing
+for epoch in range(EPOCH):
+    for step, (b_x, b_y) in enumerate(train_loader):   # gives batch data, normalize x when iterate train_loader
+
+        output = cnn(b_x)[0]               # cnn output
+        loss = loss_func(output, b_y)   # cross entropy loss
+        optimizer.zero_grad()           # clear gradients for this training step
+        loss.backward()                 # backpropagation, compute gradients
+        optimizer.step()                # apply gradients
+
+        if step % 50 == 0:
+            test_output, last_layer = cnn(test_x)
+            pred_y = torch.max(test_output, 1)[1].data.squeeze().numpy()
+            accuracy = float((pred_y == test_y.data.numpy()).astype(int).sum()) / float(test_y.size(0))
+            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy(), '| test accuracy: %.2f' % accuracy)
+            if HAS_SK:
+                # Visualization of trained flatten layer (T-SNE)
+                tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
+                plot_only = 500
+                low_dim_embs = tsne.fit_transform(last_layer.data.numpy()[:plot_only, :])
+                labels = test_y.numpy()[:plot_only]
+                plot_save(low_dim_embs, labels, epoch, step)
+
+# print 10 predictions from test data
+test_output, _ = cnn(test_x[:10])
+pred_y = torch.max(test_output, 1)[1].data.numpy().squeeze()
+print(pred_y, 'prediction number')
+print(test_y[:10].numpy(), 'real number')
