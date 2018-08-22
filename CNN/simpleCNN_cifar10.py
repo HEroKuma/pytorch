@@ -1,116 +1,129 @@
+%matplotlib inline
+import os
+
 import torch
-import torchvision
-import torchvision.transforms as transforms
-from torch.autograd import Variable
 import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
+import torch.utils.data as Data
+import torchvision
 import matplotlib.pyplot as plt
-import numpy as np
 
-'''
-1. Loading and normalizing CIFAR10
-Using torchvision, it’s extremely easy to load CIFAR10.
-'''
-
-# ToTensor:The output of torchvision datasets are PILImage images of range [0, 1]. 
-# Normalize:We transform them to Tensors of normalized range [-1, 1]
-transform = transforms.Compose(
-    [ transforms.ToTensor(),
-      transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
-train_data = torchvision.datasets.CIFAR10(root='./CIFAR10data', train=True,
-                                        download=False, transform=transform)
-train_loader = torch.utils.data.DataLoader(train_data, batch_size=4,
-                                          shuffle=True, num_workers=2)
-
-test_data = torchvision.datasets.CIFAR10(root='./CIFAR10data', train=False,
-                                       download=False, transform=transform)
-test_loader = torch.utils.data.DataLoader(test_data, batch_size=4,
-                                         shuffle=False, num_workers=2)
+# Hyper Parameters
+EPOCH = 5# train the training data n times, to save time, we just train 1 epoch
+BATCH_SIZE = 120
+LR = 0.001              # learning rate
+DOWNLOAD_MNIST = True
 
 
-classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog','frog','horse','ship', 'truck')
+# Mnist digits dataset
+if not(os.path.exists('./mnist/')) or not os.listdir('./mnist/'):
+    # not mnist dir or mnist is empyt dir
+    DOWNLOAD_MNIST = True
 
-def imshow(img):
-    img = img / 2 + 0.5     # unnormalize
-    npimg = img.numpy()
-    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+train_data = torchvision.datasets.MNIST(
+    root='./mnist/',
+    train=True,                                     # this is training data
+    transform=torchvision.transforms.ToTensor(),    # Converts a PIL.Image or numpy.ndarray to
+                                                    # torch.FloatTensor of shape (C x H x W) and normalize in the range [0.0, 1.0]
+    download=DOWNLOAD_MNIST,
+)
+
+# plot one example
+print(train_data.train_data.size())                 # (60000, 28, 28)
+print(train_data.train_labels.size())               # (60000)
+plt.imshow(train_data.train_data[0].numpy(), cmap='gray')
+plt.title('%i' % train_data.train_labels[0])
+plt.show()
+
+# Data Loader for easy mini-batch return in training, the image batch shape will be (50, 1, 28, 28)
+train_loader = Data.DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=True)
+
+# pick 2000 samples to speed up testing
+test_data = torchvision.datasets.MNIST(root='./mnist/', train=False)
+test_x = torch.unsqueeze(test_data.test_data, dim=1).type(torch.FloatTensor)[:2000]/255.   # shape from (2000, 28, 28) to (2000, 1, 28, 28), value in range(0,1)
+test_y = test_data.test_labels[:2000]
 
 
-# 2. Define a Convolution Neural Network
-class Net(nn.Module):
+class CNN(nn.Module):
     def __init__(self):
-        super(Net,self).__init__()
-        self.conv1 = nn.Conv2d(3,6,5)
-        self.pool = nn.MaxPool2d(2,2)
-        self.conv2 = nn.Conv2d(6,16,5)
-        self.fc1 = nn.Linear(16*5*5,120)
-        self.fc2 = nn.Linear(120,84)
-        self.fc3 = nn.Linear(84,10)
+        super(CNN, self).__init__()
+        self.conv1 = nn.Sequential(         # input shape (1, 28, 28)
+            nn.Conv2d(
+                in_channels=1,              # input height
+                out_channels=16,            # n_filters
+                kernel_size=5,              # filter size
+                stride=1,                   # filter movement/step
+                padding=2,                  # if want same width and length of this image after con2d, padding=(kernel_size-1)/2 if stride=1
+            ),                              # output shape (16, 28, 28)
+            nn.ReLU(),                      # activation
+            nn.MaxPool2d(kernel_size=2),    # choose max value in 2x2 area, output shape (16, 14, 14)
+        )
+        self.conv2 = nn.Sequential(         # input shape (16, 14, 14)
+            nn.Conv2d(16, 32, 5, 1, 2),     # output shape (32, 14, 14)
+            nn.ReLU(),                      # activation
+            nn.MaxPool2d(2),                # output shape (32, 7, 7)
+        )
+        self.out = nn.Linear(32 * 7 * 7, 10)   # fully connected layer, output 10 classes
 
-    def forward(self,x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1,16*5*5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = F.relu(self.fc3(x))
-        return x
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.conv2(x)
+        x = x.view(x.size(0), -1)           # flatten the output of conv2 to (batch_size, 32 * 7 * 7)
+        output = self.out(x)
+        return output, x    # return x for visualization
 
-net = Net()
 
-# 3. Define a Loss function and optimizer
-criterion = nn.CrossEntropyLoss()
-optimzer = optim.SGD(net.parameters(), lr = 0.001, momentum = 0.9)
+cnn = CNN()
+print(cnn)  # net architecture
 
-# 4. Train the network
-for epoch in range(1):
-    running_loss = 0.0
-    for i, data in enumerate(train_loader,0):  
-        input, target = data
-        input, target = Variable(input),Variable(target)
-        optimzer.zero_grad()
-        output = net(input)
-        loss = criterion(output,target)
-        loss.backward()
-        optimzer.step()
-        running_loss += loss.data[0]
-        if i % 2000 ==1999:   # print every 2000 mini_batches,1999,because of index from 0 on
-            print ('[%d,%5d]loss:%.3f' % (epoch+1,i+1,running_loss/2000))
-            running_loss = 0.0
-print('Finished Training')
+optimizer = torch.optim.Adam(cnn.parameters(), lr=LR)   # optimize all cnn parameters
+loss_func = nn.CrossEntropyLoss()                       # the target label is not one-hotted
 
-# 5. Test the network on the test data
-dataiter = iter(test_loader)
-images,labels = dataiter.next()
-imshow(torchvision.utils.make_grid(images))
-print('GroundTruth:',' '.join('%5s' % classes[labels[j]] for j in range(4)))
-outputs = net(Variable(images))
-_, pred = torch.max(outputs.data,1)
-print('Predicted: ', ' '.join('%5s' % classes[pred[j][0]] for j in range(4)))
+# following function (plot_with_labels) is for visualization, can be ignored if not interested
+from matplotlib import cm
+try: from sklearn.manifold import TSNE; HAS_SK = True
+except: HAS_SK = False; print('Please install sklearn for layer visualization')
+def plot_save(lowDWeights, labels, epoch, step):
+    plt.cla()
+    X, Y = lowDWeights[:, 0], lowDWeights[:, 1]
+    for x, y, s in zip(X, Y, labels):
+        c = cm.rainbow(int(255 * s / 9)); plt.text(x, y, s, backgroundcolor=c, fontsize=9)
+    plt.xlim(X.min(), X.max()); plt.ylim(Y.min(), Y.max()); plt.title('Visualize last layer'); plt.savefig('{}-{}.png'.format(epoch, step))
 
-correct = 0.0
-total = 0
-for data in test_loader:
-    images,labels = data
-    outputs = net(Variable(images))
-    _, pred = torch.max(outputs.data,1)
-    total += labels.size(0)
-    correct += (pred == labels).sum()
-print('Accuracy of the network on the 10000 test images : %d %%' % (100 * correct / total))
 
-# 6. what are the classes that performed well, and the classes that did not perform well:
-class_correct = list(0. for i in range(10))
-class_total = list(0. for i in range(10))
+# training and testing
+loss_l = []
+accu_l = []
+for epoch in range(EPOCH):
+    for step, (b_x, b_y) in enumerate(train_loader):   # gives batch data, normalize x when iterate train_loader
+        output = cnn(b_x)[0]               # cnn output
+        loss = loss_func(output, b_y)   # cross entropy loss
+        optimizer.zero_grad()           # clear gradients for this training step
+        loss.backward()                 # backpropagation, compute gradients
+        optimizer.step()                # apply gradients
 
-for data in test_loader:
-    images, labels = data
-    outputs = net(Variable(images))
-    _, pred = torch.max(outputs.data,1)
-    c = (pred == labels).squeeze() # 1*10000*10-->10*10000
-    for i in range(4):
-        label = labels[i]
-        class_correct[label] += c[i]
-        class_total[label] += 1
-for i in range(10):
-    print('Accuracy of %5s : %2d %%' %(classes[i],100 * class_correct[i]/class_total[i]))
+        if step % 50 == 0:
+            loss_l.append(loss.data.numpy())
+            accu_l.append(accuracy)
+            test_output, last_layer = cnn(test_x)
+            pred_y = torch.max(test_output, 1)[1].data.squeeze().numpy()
+            accuracy = float((pred_y == test_y.data.numpy()).astype(int).sum()) / float(test_y.size(0))
+            print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy(), '| test accuracy: %.2f' % accuracy)
+            if HAS_SK:
+                # Visualization of trained flatten layer (T-SNE)
+                tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
+                plot_only = 500
+                low_dim_embs = tsne.fit_transform(last_layer.data.numpy()[:plot_only, :])
+                labels = test_y.numpy()[:plot_only]
+                plot_save(low_dim_embs, labels, epoch, step)
+    loss_l.append(loss.data.numpy())
+    accu_l.append(accuracy)
+    print('ep_loss', loss_l, 'ep_acc', accu_l)
+
+# print 10 predictions from test data
+test_output, _ = cnn(test_x[:10])
+pred_y = torch.max(test_output, 1)[1].data.numpy().squeeze()
+print(pred_y, 'prediction number')
+print(test_y[:10].numpy(), 'real number')
+a = plt.plot(loss_l, label='loss', color='r')
+b = plt.plot(accu_l, label='accu', color='b')
+plt.show()
