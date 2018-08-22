@@ -8,7 +8,7 @@ import torchvision
 import matplotlib.pyplot as plt
 
 # Hyper Parameters
-EPOCH = 5# train the training data n times, to save time, we just train 1 epoch
+EPOCH = 1               # train the training data n times, to save time, we just train 1 epoch
 BATCH_SIZE = 120
 LR = 0.001              # learning rate
 DOWNLOAD_MNIST = True
@@ -124,6 +124,7 @@ test_output, _ = cnn(test_x[:10])
 pred_y = torch.max(test_output, 1)[1].data.numpy().squeeze()
 print(pred_y, 'prediction number')
 print(test_y[:10].numpy(), 'real number')
+plt.clf()
 a = plt.plot(loss_l, label='loss', color='r')
 b = plt.plot(accu_l, label='accu', color='b')
 plt.show()
