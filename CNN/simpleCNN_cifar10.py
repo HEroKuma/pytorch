@@ -102,11 +102,11 @@ for epoch in range(EPOCH):
         optimizer.step()                # apply gradients
 
         if step % 50 == 0:
-            loss_l.append(loss.data.numpy())
-            accu_l.append(accuracy)
             test_output, last_layer = cnn(test_x)
             pred_y = torch.max(test_output, 1)[1].data.squeeze().numpy()
             accuracy = float((pred_y == test_y.data.numpy()).astype(int).sum()) / float(test_y.size(0))
+            loss_l.append(loss.data.numpy())
+            accu_l.append(accuracy)
             print('Epoch: ', epoch, '| train loss: %.4f' % loss.data.numpy(), '| test accuracy: %.2f' % accuracy)
             if HAS_SK:
                 # Visualization of trained flatten layer (T-SNE)
