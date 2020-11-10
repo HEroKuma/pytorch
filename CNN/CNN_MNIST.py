@@ -96,7 +96,7 @@ for epoch in range(num_epochs):
         outputs = cnn(images)
         _, correct_label = torch.max(outputs, 1)
         correct_num = (correct_label == labels).sum()
-        acc = correct_num.data[0] / labels.size(0)
+        acc = correct_num.item() / labels.size(0)
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
@@ -104,7 +104,7 @@ for epoch in range(num_epochs):
         if (i + 1) % 100 == 0:
             print('Epoch [%d/%d], Iter [%d/%d] Loss: %.4f, Acc: %.4f' %
                   (epoch + 1, num_epochs, i + 1,
-                   len(train_dataset) // batch_size, loss.data[0], acc))
+                   len(train_dataset) // batch_size, loss.item(), acc))
 
 # Test the Model
 cnn.eval()  # Change model to 'eval' mode (BN uses moving mean/var).
